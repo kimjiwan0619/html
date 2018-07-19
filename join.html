@@ -3,24 +3,45 @@
 <head>
   <meta charset ="utf-8" />
   <title>회원가입</title>
+  <style>
+  form
+  {
+  margin: 0 auto;
+  width: 400px;
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+  }
+  form div + div
+  {
+      margin-top: 1em;
+  }
+  label
+  {
+  /* To make sure that all label have the same size and are properly align */
+  display: inline-block;
+  width: 300px;
+  text-align: right;
+  }
+  </style>
 </head>
   <body>
-    <form name ='join' method="POST" action="php_check.php">
+    <form name ='join' method="POST" action="http://localhost/register.html">
       <h1>input your information</h1>
-      <table border="1">
-        <label>ID : <input type="text" name="userid" /></label>
+
+        <label for="userid">아이디: <input  type="text" name="userid" /></label>
         <br />
-        <label>PW : <input type="text" name="userpw" /></label>
+        <label for="userpw">비밀번호: <input  type="text" name="userpw" /></label>
         <br />
-        <label>PW again: <input type="text" name="userpw_a" /></label>
+        <label for="userpw_a">비번 재확인: <input  type="text" name="userpw_a" /></label>
         <br />
-        <label>email : <input type="text" name="useremail" /></label>
+        <label for="usermail">이메일: <input for type="text" name="useremail" /></label>
         <br />
-        <label>name : <input type="text" name="username" /></label>
+        <label for="phone_num">핸드폰번호:<input for type="text" name="phone_num" /></label>
         <br />
-        <input type="submit" value="제출" onclick = "location.href='http://localhost/register.html'"; />
-      </table>
-    </form>
-    <input type="reset" value="rewrite" />
+        <input for type="submit" value="제출" />
+
+    <input for type="reset" value="rewrite" />
+  </form>
   </body>
 </html>
