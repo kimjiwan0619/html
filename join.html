@@ -24,9 +24,45 @@
   text-align: right;
   }
   </style>
+
+  <script language="javascript">
+  function checked()
+  {
+    var userid=doc.getElementById('userid').value;
+    var userpw=doc.getElementById('userpw').value;
+    var userpw_a=doc.getElementById('userpw_a').value;
+    var usermail=doc.getElementById('usermail').value;
+    var phone_num=doc.getElementById('phone_num').value;
+
+    if (userid=='asd')
+    {
+      alert('중복입니다');
+      doc.getElementById('userid').focus();
+    }
+    if(userpw!=userpw_a)
+    {
+      alert('비밀번호가다릅니다');
+      doc.getElementById('userpw').value='';
+      doc.getElementById('userpw_a').value='';
+      doc.getElementById('userpw').focus();
+      return;
+    }
+
+    var regExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;
+    if(!regExp.test(usermail))
+    {
+      alert('이메일형식이아닙니다')
+      doc.getElementById('usermail').value='';
+      doc.getElementById('usermail').focus();
+      return;
+    }
+
+  }
+
+  </script>
 </head>
   <body>
-    <form name ='join' method="POST" action="http://localhost/register.html">
+    <form name ='join' method="POST" onsubmit="return checked()">
       <h1>input your information</h1>
 
         <label for="userid">아이디: <input  type="text" name="userid" /></label>
@@ -35,13 +71,13 @@
         <br />
         <label for="userpw_a">비번 재확인: <input  type="text" name="userpw_a" /></label>
         <br />
-        <label for="usermail">이메일: <input for type="text" name="useremail" /></label>
+        <label for="usermail">이메일: <input for type="text" name="usermail" /></label>
         <br />
-        <label for="phone_num">핸드폰번호:<input for type="text" name="phone_num" /></label>
+        <label for="phone_num">핸드폰번호: <input for type="text" name="phone_num" /></label>
         <br />
-        <input for type="submit" value="제출" />
-
-    <input for type="reset" value="rewrite" />
+        <input type="submit" value="회원가입"/>
+        <input type="reset" value="다시입력"/>
   </form>
+
   </body>
 </html>
